@@ -1,5 +1,7 @@
 import Link from "next/link";
+
 import { routes } from "../data/routes";
+
 import styles from '../styles/Layout.module.css';
 
 export default function Layout({ children }: LayoutProps) {
@@ -27,4 +29,3 @@ export default function Layout({ children }: LayoutProps) {
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
 };
-

@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getLinks, LinkObject } from '../../../utils/getLinks';
+import { LinkObject } from '../../../utils/parseHTML';
+import { getLinks } from '../../../utils/getLinks';
 import { getTopLinks } from '../../../utils/getTopLinks';
 import { routes } from '../../../data/routes';
 
@@ -13,13 +14,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const { slug } = req.query;
   let links: LinkObject[] = [];
 
-  // /articles/top
+  // GET /articles/top
   if (req.method === 'GET' && slug.includes('top')) {
     const result = await getTopLinks();
     if (result) links = [...result];
   };
 
-  // /articles/[slug]
+  // GET /articles/[slug]
   if (
     req.method === 'GET' &&
     !slug.includes('top') &&

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { routes } from '../../data/routes';
 
-import { LinkObject } from '../../utils/getLinks';
+import { LinkObject } from '../../utils/parseHTML';
 
 import styles from '../../styles/Articles.module.css';
 
